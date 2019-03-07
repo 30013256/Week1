@@ -8,8 +8,10 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+       public static void Main()
         {
+            Console.Clear();
+
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Enter 1 for Calculator or 2 for Bank");
@@ -39,8 +41,8 @@ namespace ConsoleApp1
 
         public static void Calulator()
         {
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
 
 
 
@@ -86,7 +88,23 @@ namespace ConsoleApp1
 
             }
 
-            Console.Write(num1 + calulation + num2 + "=" + resalt);
+            Console.WriteLine(num1 + calulation + num2 + "=" + resalt);
+
+            {
+
+                Console.Write("Do you want to go back main menu? (Y / N): ");
+                string input = Console.ReadLine().ToLower();
+
+
+                while (input == "y")
+                {
+                    Main();
+
+
+                }
+
+
+            }
 
             Console.ReadLine();
 
@@ -124,6 +142,22 @@ namespace ConsoleApp1
         public static void Bank()
         {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Console.ForegroundColor = ConsoleColor.Green;
 
 
@@ -144,31 +178,70 @@ namespace ConsoleApp1
 
             Console.Write(firstname + " " + lastname + " ");
 
-            Console.WriteLine("Enter pin");
-            pin = int.Parse(Console.ReadLine());
 
-            if (pin == 123 && age == 17 && firstname == "Jacques" && lastname == "Rockell")
+
+            int limit = 3;
+
+            for (int counter = 1; counter <= limit; counter++)
             {
+                Console.WriteLine("Loop " + counter);
 
-                Console.WriteLine("Unlocked");
 
-                Console.WriteLine("Enter withdraw ammount:");
-                decimal withdraw = decimal.Parse(Console.ReadLine());
+                Console.Clear();
 
-                Console.WriteLine(firstname + " " + lastname + " " + "Savings$" + savings + "-" + "$" + withdraw);
+                Console.WriteLine("Enter pin");
+                pin = int.Parse(Console.ReadLine());
 
-                savings = savings - withdraw;
+                if (pin == 123 && age == 17 && firstname == "Jacques" && lastname == "Rockell")
+                {
 
-                Console.WriteLine("Your new ballence is $" + savings);
+                    Console.WriteLine("Unlocked");
+
+                    Console.WriteLine("Enter withdraw ammount:");
+                    decimal withdraw = decimal.Parse(Console.ReadLine());
+
+                    Console.WriteLine(firstname + " " + lastname + " " + "Savings$" + savings + "-" + "$" + withdraw);
+
+                    savings = savings - withdraw;
+
+                    Console.WriteLine("Your new ballence is $" + savings);
+
+                    {
+                        
+                        Console.Write("Do you want to go back main menu? (Y / N): ");
+                        string input = Console.ReadLine().ToLower();
+
+                        
+                        while (input == "y")
+                        {
+                            Main();
+
+
+                        }
+
+                    
+                    }
+                }
+
+
+
+
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Incorrect PIN");
+
+
+                    if (counter >= 3) 
+                    {
+                        Console.Write("Locked");
+
+                    }
+
+                    
+                }
+                Console.ReadLine();
             }
-
-            else
-            {
-                Console.WriteLine("Locked");
-
-            }
-
-
 
 
             Console.ReadLine();
@@ -176,7 +249,40 @@ namespace ConsoleApp1
 
         }
 
+         public static void guessgame()
+        {
 
+            Random rand = new Random();
+            int number = rand.Next(1, 11);
+
+            Console.WriteLine("Welcome to the geussing game :) ");
+
+
+            int limit = 3;
+
+            for (int counter = 1; counter <= limit; counter++)
+            {
+                Console.WriteLine("Loop " + counter);
+
+                Console.WriteLine("Guess a number between 1-10. You have " + limit + "Tries left");
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+        }
 
     }
 
